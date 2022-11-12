@@ -1,4 +1,5 @@
 using Api;
+using Infrastructure;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -21,7 +22,7 @@ builder.Services.AddSwaggerGen(c =>
     c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 });
 
-//builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddCors(options =>
 {

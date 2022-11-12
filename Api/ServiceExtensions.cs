@@ -18,7 +18,7 @@ namespace Api
 
                     if (contextFeature is not null)
                     {
-                        Log.Error($"Something went wrong in {contextFeature.Error}");
+                        //Log.Error($"Something went wrong in {contextFeature.Error}");
 
                         await context.Response.WriteAsync(new Error
                         {
