@@ -45,7 +45,11 @@ var app = builder.Build();
 
 app.UseDeveloperExceptionPage();
 app.UseSwagger();
-app.UseSwaggerUI(c => c.RoutePrefix = String.Empty);
+app.UseSwaggerUI(c => 
+{ 
+    c.SwaggerEndpoint("swagger/v1/swagger.json", "BrainboxAPI v1");
+    c.RoutePrefix = string.Empty;
+});
 
 app.UseHttpsRedirection();
 app.ConfigureExceptionHandler();
