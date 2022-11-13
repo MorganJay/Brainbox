@@ -16,9 +16,14 @@ builder.Services.AddSwaggerGen(c =>
     {
         Version = "v1",
         Title = "Brainbox API",
-        Description = "",
+        Description = "Brainbox Inc is a retail company based in Nigeria that offers a range of products to their customers. Brainbox wants to leverage on the internet buzz to make their products available online via their mobile app and web app to the customers.",
+        Contact = new OpenApiContact
+        {
+            Name = "Brainbox Inc",
+            Email = "jetmorgan.jm@gmail.com",
+            Url = new Uri("https://brainboxapi.azurewebsites.net/"),
+        },
     });
-
     c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 });
 
@@ -40,7 +45,7 @@ var app = builder.Build();
 
 app.UseDeveloperExceptionPage();
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(c => c.RoutePrefix = String.Empty);
 
 app.UseHttpsRedirection();
 app.ConfigureExceptionHandler();
