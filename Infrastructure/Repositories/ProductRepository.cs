@@ -73,7 +73,9 @@ namespace Infrastructure.Repositories
         {
             var product = await GetProduct(productId);
 
-            await ValidateProductName(productDto.Name);
+            var existingProduct = await FirstOrDefaultAsync(x => x.Name.ToLower().Equals(productDto.Name.ToLower()) && !x.Id.Equals(productId));
+
+            if (existingProduct is not null) throw new CustomException("This product name already exists");
 
             product.Name = productDto.Name;
             product.Category = productDto.Category;
