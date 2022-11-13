@@ -7,9 +7,9 @@ using Domain.Entities;
 
 using FluentValidation;
 using FluentValidation.AspNetCore;
-
 using Infrastructure.Common;
 using Infrastructure.Database;
+using Infrastructure.Mapping;
 using Infrastructure.Repositories;
 using Infrastructure.UserManager;
 using Microsoft.AspNetCore.Identity;
@@ -42,13 +42,15 @@ namespace Infrastructure
                 options.UseSqlServer(configuration.GetConnectionString("MainContext"));
             });
 
-            services.AddAutoMapper(typeof(DependencyInjection));
+            services.AddAutoMapper(typeof(AutoMapperProfile));
 
             services.AddValidatorsFromAssemblyContaining(typeof(DependencyInjection));
             services.AddFluentValidationAutoValidation();
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IMainContext, MainContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             AddRepositories(services);
             AddManagers(services);

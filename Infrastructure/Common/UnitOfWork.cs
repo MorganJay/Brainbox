@@ -20,8 +20,9 @@ namespace Infrastructure.Common
             return await _context.SaveChangesAsync(cancellationToken);
         }
 
-        public IBaseRepository<Product> Products => new BaseRepository<Product>(_context);
+        public IProductRepository Products => new ProductRepository(_context);
         public IBaseRepository<CartItem> CartItems => new BaseRepository<CartItem>(_context);
         public IBaseRepository<Cart> Carts => new BaseRepository<Cart>(_context);
+        public IBaseRepository<User> Users => new BaseRepository<User>(_context);
     }
 }

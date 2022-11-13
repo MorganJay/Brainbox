@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Infrastructure.Repositories
 {
-    internal class BaseRepository<T> : IBaseRepository<T> where T : class
+    public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         private readonly DbSet<T> _dbSet;
         protected readonly IMainContext _context;
@@ -20,6 +20,12 @@ namespace Infrastructure.Repositories
         {
             _dbSet.Add(entity);
             return entity;
+        }
+        
+        public virtual T[] AddRange(params T[] entities)
+        {
+            _dbSet.AddRange(entities);
+            return entities;
         }
 
         public virtual async Task<T> FindByIdAsync(params object[]? ids)

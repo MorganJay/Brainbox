@@ -11,5 +11,7 @@ namespace Domain.Entities
         public int NumberInStock { get; set; }
 
         public string Category { get; set; }
+
+        public bool Stockable { get; set; }
     }
 }

@@ -37,5 +37,6 @@ namespace Infrastructure.UserManager
         {
             return await _userManager.CreateAsync(user, password);
         }
+
     }
 }

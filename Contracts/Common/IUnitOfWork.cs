@@ -5,9 +5,10 @@ namespace Contracts.Common
 {
     public interface IUnitOfWork
     {
-        IBaseRepository<Product> Products { get; }
+        IProductRepository Products { get; }
         IBaseRepository<Cart> Carts { get; }
         IBaseRepository<CartItem> CartItems { get; }
+        IBaseRepository<User> Users { get; }
 
         Task<int> SaveAsync(CancellationToken cancellationToken = default);
     }
