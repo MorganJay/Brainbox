@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    public class CartController : BaseController
+    public class CartsController : BaseController
     {
         private readonly IMapper _mapper;
         private readonly IUserManager<User> _userManager;
