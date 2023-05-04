@@ -14,7 +14,7 @@ namespace Api.Controllers
         private readonly IUserManager<User> _userManager;
         private readonly ICartRepository _cartRepository;
 
-        public CartController(IMapper mapper, ICartRepository cartRepository, IUserManager<User> userManager)
+        public CartsController(IMapper mapper, ICartRepository cartRepository, IUserManager<User> userManager)
         {
             _mapper = mapper;
             _cartRepository = cartRepository;
